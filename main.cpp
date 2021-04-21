@@ -20,7 +20,6 @@ int main()
 {
 	std::srand(time(nullptr));
 
-	// ReSharper disable once IdentifierTypo <-- tired of seeing 'typo' in my object name.
 	Character newchar;
 	
 	greeting();
@@ -30,7 +29,8 @@ int main()
 	newchar.get_class();
 	
 	Game::char_display(&newchar.name, &newchar.race, &newchar.class_name);
-	
+
+	Character::get_stats();
 	
 	return 0;
 }

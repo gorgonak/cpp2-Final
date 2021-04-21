@@ -1,5 +1,7 @@
 #include "Character.h"
 
+
+
 void Character::get_name()
 {
 
@@ -103,6 +105,60 @@ void Character::get_class()
 		}
 	}
 
+}
+
+int Character::get_value()
+{
+	int ability_array[4];
+
+	for (auto& i : ability_array)
+	{
+		const auto ability_die = die(6, 1);
+		i = {ability_die};
+		// std::cout << ability_array[i] << " ";  // for debugging
+	}
+	
+	std::sort(ability_array, ability_array+4);
+
+	const auto result = ability_array[1] + ability_array[2] + ability_array[3];
+
+	return result;
+
+	/*
+	// this was used for displaying the contents of our array from the random rolls
+	for(int i = 0; i < 4; i++)
+	{
+		std::cout << ability_array[i] << " ";
+	}
+
+	// my original for-loop that was changed toa modern range-based for loop (thanks ReSharper)
+	for (int i = 0; i < 4; i++)
+	{
+		int ability_die = die(6, 1);
+		ability_array[i] = { ability_die };
+		// std::cout << ability_array[i] << " ";  // for debugging
+	}
+	*/	
+}
+
+int Character::get_stats()
+{
+	
+	const auto str = get_value();
+	const auto dex = get_value();
+	const auto con = get_value();
+	const auto ine = get_value();
+	const auto wis = get_value();
+	const auto cha = get_value();
+
+	std::cout << "STR: " << str << std::endl;
+	std::cout << "DEX: " << dex << std::endl;
+	std::cout << "CON: " << con << std::endl;
+	std::cout << "INT: " << ine << std::endl;
+	std::cout << "WIS: " << wis << std::endl;
+	std::cout << "CHA: " << cha << std::endl;
+	
+	return 0;
 }
 
 

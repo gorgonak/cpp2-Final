@@ -14,6 +14,9 @@ public:
 	void get_race();
 	void get_class();
 	
+	static int get_value();
+	static int get_stats();
+	
 private:
 	
 };

@@ -1,6 +1,4 @@
 #include "Game.h"
-#include <cstdlib>
-#include <string>
 
 int Game::die(int pip_num, int num_rolled)
 {

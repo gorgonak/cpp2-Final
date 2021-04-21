@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <cstdlib>
+#include <algorithm>
 
 class Game
 {
