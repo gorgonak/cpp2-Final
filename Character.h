@@ -1,14 +1,18 @@
 #pragma once
-#include <string>
-
 #include "Game.h"
+
 class Character :
 	public Game
 {
 public:
 
-	std::string Name;
-	std::string Race;
+	std::string name;
+	std::string race;
+	std::string class_name;
+
+	void get_name();
+	void get_race();
+	void get_class();
 	
 private:
 	
