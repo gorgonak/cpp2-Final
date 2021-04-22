@@ -5,6 +5,7 @@
 
 #include "Character.h"
 #include "Game.h"
+#include "test.h"
 
 /*
 
@@ -20,17 +21,22 @@ int main()
 {
 	std::srand(time(nullptr));
 
+	
 	Character newchar;
 	
 	greeting();
 
 	newchar.get_name();
 	newchar.get_race();
-	newchar.get_class();
-	
-	Game::char_display(&newchar.name, &newchar.race, &newchar.class_name);
+	newchar.get_class(); 
+	newchar.set_stats();
 
-	Character::get_stats();
+	system("pause");
+	
+	Game::char_display(&newchar.name, &newchar.race, &newchar.class_name,
+		&newchar.str, &newchar.dex, &newchar.con, &newchar.ine, &newchar.wis, &newchar.cha);
+
+	
 	
 	return 0;
 }
