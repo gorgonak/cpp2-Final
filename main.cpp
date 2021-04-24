@@ -1,9 +1,7 @@
-#include <iostream>
-#include <thread>
 #include <ctime>
 
-
 #include "Character.h"
+#include "File.h"
 #include "Game.h"
 #include "test.h"
 
@@ -15,34 +13,32 @@ TODO: add random switch case for race and class.
  
  */
 
-void greeting();
-
 int main()
 {
 	std::srand(time(nullptr));
 
-	
 	Character newchar;
+	newchar.name = "potatocannon";
 	
-	greeting();
+	Game::greeting();
 
 	newchar.get_name();
 	newchar.get_race();
 	newchar.get_class(); 
 	newchar.set_stats();
-
-	system("pause");
+	newchar.set_health();
 	
-	Game::char_display(&newchar.name, &newchar.race, &newchar.class_name,
-		&newchar.str, &newchar.dex, &newchar.con, &newchar.ine, &newchar.wis, &newchar.cha);
+	const auto health = newchar.get_health();
+	
+	system("pause");
 
+	Game::char_display(&newchar.name, &newchar.race, &newchar.class_name,
+		&newchar.str, &newchar.dex, &newchar.con, &newchar.ine, &newchar.wis, &newchar.cha, health);
+
+
+	File::char_display(&newchar.name, &newchar.race, &newchar.class_name,
+		&newchar.str, &newchar.dex, &newchar.con, &newchar.ine, &newchar.wis, &newchar.cha, health);
 	
 	
 	return 0;
 }
-
-void greeting()
-{
-	std::cout << "\n\n* Hello and Welcome to the D&D Character Generator. *\n" << std::endl;
-}
-

@@ -21,11 +21,17 @@ public:
 	void get_race();
 	void get_class();
 	void set_stats();
+	void reroll_stat();
+	void set_health();
+	int get_health() const;
 	
 	static int get_value();
 	static int* stat_gen();
+
+	static void char_display();
 	
 private:
-	
+
+	int char_health = 0;
 };
 
