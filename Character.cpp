@@ -335,8 +335,10 @@ void Character::set_stats()
 void Character::reroll_stat()
 {
 	char reroll_choice;
-	int reroll_num;
+	std::string user_stat;
+	auto reroll = false;
 
+	std::cout << "\n\n";
 	std::cout << " STR: " << str << std::endl;
 	std::cout << " DEX: " << dex << std::endl;
 	std::cout << " CON: " << con << std::endl;
@@ -347,51 +349,66 @@ void Character::reroll_stat()
 	std::cout << "\n\n Would you like to re-roll one of these stats? [ Y / N ] ";
 	std::cin >> reroll_choice;
 
-	switch(reroll_choice)
+	switch (reroll_choice)
 	{
 	case 'y':
 	case 'Y':
-		std::cout << "\n\n Which stat would you like to re-roll?\
-		\n [1] STR\n [2] DEX\n [3] CON\n [4] INT\n [5] WIS\n [6] CHA \n ";
-
-		std::cin >> reroll_num;
-
-		switch (reroll_num)
+		while (!reroll)
 		{
-		case 1:
-			str = get_value();
-			std::cout << " STR: " << str << std::endl;
-			break;
-		case 2:
-			dex = get_value();
-			std::cout << " DEX: " << dex << std::endl;
-			break;
-		case 3:
-			con = get_value();
-			std::cout << " CON: " << con << std::endl;
-			break;
-		case 4:
-			ine = get_value();
-			std::cout << " INT: " << ine << std::endl;
-			break;
-		case 5:
-			wis = get_value();
-			std::cout << " WIS: " << wis << std::endl;
-			break;
-		case 6:
-			cha = get_value();
-			std::cout << " CHA: " << cha << std::endl;
-			break;
+			std::cout << "\n\n Which stat would you like to re-roll [ STR, DEX, CON, INT, WIS, CHA, NEVERMIND ] ? \n ";
 
-		default:
-			break;
+			std::cin >> user_stat;
+
+			if (user_stat == "STR")
+			{
+				str = get_value();
+				std::cout << " STR: " << str << std::endl;
+				reroll = true;
+			}
+			else if (user_stat == "DEX")
+			{
+				dex = get_value();
+				std::cout << " DEX: " << dex << std::endl;
+				reroll = true;
+			}
+			else if (user_stat == "CON")
+			{
+				con = get_value();
+				std::cout << " CON: " << con << std::endl;
+				reroll = true;
+			}
+			else if (user_stat == "INT")
+			{
+				ine = get_value();
+				std::cout << " INT: " << ine << std::endl;
+				reroll = true;
+			}
+			else if (user_stat == "WIS")
+			{
+				wis = get_value();
+				std::cout << " WIS: " << wis << std::endl;
+				reroll = true;
+			}
+			else if (user_stat == "CHA")
+			{
+				cha = get_value();
+				std::cout << " CHA: " << cha << std::endl;
+				reroll = true;
+			}
+			else if (user_stat == "NEVERMIND")
+			{
+				reroll = true;
+			}
+			else
+			{
+				Game::clr_input();
+				system("CLS");
+			}
 		}
-	
-		break;
-		
 	default:
 		break;
 	}
+}
 	
 	/*if(reroll_choice == 'y')
 	{
@@ -473,7 +490,7 @@ void Character::reroll_stat()
 
 		system("pause");
 	}*/
-}
+
 
 int* Character::stat_gen()
 {

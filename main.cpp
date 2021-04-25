@@ -3,27 +3,18 @@
 #include "Character.h"
 #include "File.h"
 #include "Game.h"
-#include "test.h"
-
-/*
-
-TODO: create classes
-TODO: create functions for getting name, race, and class.
-TODO: add random switch case for race and class.
- 
- */
-
-auto loop = false;
+// #include "test.h" used to test functions and debug
 
 int main()
 {
 	std::srand(time(nullptr));
+	auto loop = false;
 	
 	Game::greeting();
 	
 	while (!loop) {
 	
-		Character newchar;
+		Character newchar;  // creating an object from Character class
 
 		newchar.get_name();
 		newchar.get_race();
