@@ -129,3 +129,28 @@ void File::char_display(const std::string* name, const std::string* race, const 
 	}
 
 }
+
+void File::save_char(const std::string* name, const std::string* race, const std::string* class_name,
+	const int* str, const int* dex, const int* con, const int* ine, const int* wis, const int* cha, const int health)
+{
+	char user_choice;
+	
+	std::cout << "\n\n Would you like to save your character: " << *name << " ? [ Y / N ] \n ";
+	std::cin >> user_choice;
+	
+	switch (user_choice)
+	{
+		
+	case 'y':
+	case 'Y':
+		std::cout << std::endl;
+		char_display(name, race, class_name, str, dex, con, ine, wis, cha, health);
+		std::cout << " * CHARACTER SAVED * " << std::endl;
+		break;
+
+	default:
+	break;
+		
+	}
+
+}

@@ -3,10 +3,10 @@
 
 void Character::get_name()
 {
-
-	std::cout << " What is your character's name? ";
-	std::getline(std::cin, name);
+	system("CLS");
 	
+	std::cout << "\n\n What is your character's name? ";
+	std::getline(std::cin, name);
 }
 
 void Character::get_race()
@@ -15,15 +15,17 @@ void Character::get_race()
 	auto correct = false;
 
 	while (!loop) {
-	
-	std::cout << "\n What race is " << name << "?\n\n";
+
+		system("CLS");
+		
+	std::cout << "\n\n\n What race is " << name << "?\n\n";
 
 	std::cout << " Choose from the following (please use all caps): \n [ ";
 	for (const auto& i : race_list)
 	{	
 		std::cout << i << ", ";	
 	}
-	std::cout << "RANDOM ]\n\n";
+	std::cout << "RANDOM ]\n\n ";
 	std::cin >> race;
 	
 	if(race == "RANDOM")
@@ -80,6 +82,7 @@ void Character::get_race()
 			if (!correct)
 			{
 				std::cout << race << " was an Invalid Response, Try Again\n\n";
+				system("pause");
 			}
 
 		}
@@ -94,14 +97,16 @@ void Character::get_class()
 
 	while (!loop) {
 
-		std::cout << " What class would you like to be? \n\n";
+		system("CLS");
+		
+		std::cout << "\n\n\n What class would you like to be? \n\n";
 
 		std::cout << " Choose from the following (please use all caps): \n [ ";
 		for (const auto& i : class_list)
 		{
 			std::cout << i << ", ";
 		}
-		std::cout << "RANDOM ]\n\n";
+		std::cout << "RANDOM ]\n\n ";
 		std::cin >> class_name;
 		
 		if (class_name == "RANDOM")
@@ -168,6 +173,7 @@ void Character::get_class()
 			if (!correct)
 			{
 				std::cout << class_name << " was an Invalid Response, Try Again\n\n";
+				system("pause");
 			}
 
 		}
@@ -217,12 +223,13 @@ void Character::set_stats()
 	auto const secondary_stat = stat_rolls[4];
 	auto const tertiary_stat = stat_rolls[3];
 
-	std::cout << "\n\n" << class_name << "'s: " << std::endl;
-	std::cout << "PRIMARY STAT: " << primary_stat << std::endl;
-	std::cout << "SECONDARY STAT: " << secondary_stat << std::endl;
-	std::cout << "TERTIARY STAT: " << tertiary_stat << std::endl;
-
+	system("CLS");
 	
+	std::cout << "\n\n\n " << class_name << "'s: " << std::endl;
+	std::cout << " PRIMARY STAT: " << primary_stat << std::endl;
+	std::cout << " SECONDARY STAT: " << secondary_stat << std::endl;
+	std::cout << " TERTIARY STAT: " << tertiary_stat << std::endl;
+	std::cout << std::endl;
 	
 	if(class_name == "BARBARIAN")
 	{
@@ -337,15 +344,15 @@ void Character::reroll_stat()
 	std::cout << " WIS: " << wis << std::endl;
 	std::cout << " CHA: " << cha << std::endl;
 
-	std::cout << "Would you like to re-roll one of these stats? [ Y / N ] ";
+	std::cout << "\n\n Would you like to re-roll one of these stats? [ Y / N ] ";
 	std::cin >> reroll_choice;
 
 	switch(reroll_choice)
 	{
 	case 'y':
 	case 'Y':
-		std::cout << "Which stat would you like to re-roll?\
-		\n [1] STR\n [2] DEX\n [3] CON\n [4] INT\n [5] WIS\n [6] CHA" << std::endl;
+		std::cout << "\n\n Which stat would you like to re-roll?\
+		\n [1] STR\n [2] DEX\n [3] CON\n [4] INT\n [5] WIS\n [6] CHA \n ";
 
 		std::cin >> reroll_num;
 

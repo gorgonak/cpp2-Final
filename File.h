@@ -14,6 +14,10 @@ public:
 
 	static void char_display(const std::string* name, const std::string* race, const std::string* class_name, 
 		const int* str, const int* dex, const int* con, const int* ine, const int* wis, const int* cha, const int health);
+
+	static void save_char(const std::string* name, const std::string* race, const std::string* class_name,
+		const int* str, const int* dex, const int* con, const int* ine, const int* wis, const int* cha, const int health);
+	
 private:
 };
 

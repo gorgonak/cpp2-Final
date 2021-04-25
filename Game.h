@@ -25,8 +25,12 @@ public:
 	static void char_display(const std::string* name, const std::string* race, const std::string* class_name,
 		const int* str, const int* dex, const int* con, const int* ine, const int* wis, const int* cha, const int health);
 
-	static void check_value(std::string arr[], const std::string input);
+	static void check_value(std::string arr[], const std::string& input);
 
+	static bool repeat(bool loop);
+
+	static void clr_input();
+	
 private:
 	
 	

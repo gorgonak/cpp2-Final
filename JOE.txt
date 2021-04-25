@@ -1,0 +1,13 @@
+
+
+ Name: JOE
+ Race: ELF
+ Class: WARLOCK
+ Health: 9
+
+ STR: 9
+ DEX: 8 [6 + 2] 
+ CON: 13
+ INT: 7
+ WIS: 11
+ CHA: 15

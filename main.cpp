@@ -13,32 +13,36 @@ TODO: add random switch case for race and class.
  
  */
 
+auto loop = false;
+
 int main()
 {
 	std::srand(time(nullptr));
-
-	Character newchar;
-	newchar.name = "potatocannon";
 	
 	Game::greeting();
-
-	newchar.get_name();
-	newchar.get_race();
-	newchar.get_class(); 
-	newchar.set_stats();
-	newchar.set_health();
 	
-	const auto health = newchar.get_health();
+	while (!loop) {
 	
-	system("pause");
+		Character newchar;
 
-	Game::char_display(&newchar.name, &newchar.race, &newchar.class_name,
-		&newchar.str, &newchar.dex, &newchar.con, &newchar.ine, &newchar.wis, &newchar.cha, health);
+		newchar.get_name();
+		newchar.get_race();
+		newchar.get_class();
+		newchar.set_stats();
+		newchar.set_health();
 
+		const auto health = newchar.get_health();
 
-	File::char_display(&newchar.name, &newchar.race, &newchar.class_name,
-		&newchar.str, &newchar.dex, &newchar.con, &newchar.ine, &newchar.wis, &newchar.cha, health);
-	
+		Game::char_display(&newchar.name, &newchar.race, &newchar.class_name,
+			&newchar.str, &newchar.dex, &newchar.con, &newchar.ine, &newchar.wis, &newchar.cha, health);
+
+		File::save_char(&newchar.name, &newchar.race, &newchar.class_name,
+			&newchar.str, &newchar.dex, &newchar.con, &newchar.ine, &newchar.wis, &newchar.cha, health);
+
+		loop = Game::repeat(loop);
+
+	}
 	
 	return 0;
 }
+

@@ -1,10 +1,9 @@
 #include "Game.h"
 
-#include "Character.h"
-
 void Game::greeting()
 {
-	std::cout << "\n\n* Hello and Welcome to the D&D Character Generator. *\n" << std::endl;
+	std::cout << "\n\n* Hello and Welcome to the D&D Character Generator. * \n\n ";
+	system("pause");
 }
 
 int Game::die(const int pip_num, const int num_rolled)
@@ -19,7 +18,7 @@ void Game::char_display(const std::string* name, const std::string* race, const 
 {
 	system("CLS");
 	
-	std::cout << "\n\n Name: " << *name << "\n Health: " << health <<
+	std::cout << "\n\n\n Name: " << *name << "\n Health: " << health <<
 		"\n Race: " << *race << "\n Class: " << *class_name << "\n" << std::endl;
 
 	if (*race == "ELF")
@@ -105,7 +104,7 @@ void Game::char_display(const std::string* name, const std::string* race, const 
 	}
 }
 
-void Game::check_value(std::string arr[], const std::string input)
+void Game::check_value(std::string arr[], const std::string& input)
 {
 	auto loop = false;
 	auto correct = false;
@@ -127,4 +126,44 @@ void Game::check_value(std::string arr[], const std::string input)
 			std::cout << input << " was an Invalid Response, Try Again";
 		}
 	}
+}
+
+bool Game::repeat(bool loop)
+{
+	char user_choice;
+	
+	std::cout << "\n Would you like to make another character? [ Y / N ] \n ";
+	std::cin >> user_choice;
+
+	switch (user_choice)
+	{
+
+	case 'y':
+	case 'Y':
+		loop = false;
+		break;
+
+	default:
+		
+		system("CLS");
+		std::cout << "\n\n\n Have a wonderful adventure! \n\n ";
+		system("pause");
+		loop = true;
+
+	}
+
+	clr_input();
+	
+	return loop;
+}
+
+void Game::clr_input()
+{
+
+	std::cin.clear(); // clear failed/error states of the stream if they are set
+	if (std::cin.rdbuf()->in_avail()) // if there are any characters in the input buffer
+	{
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // throw them away
+	}
+	
 }
