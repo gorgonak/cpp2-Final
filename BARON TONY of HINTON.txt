@@ -1,0 +1,13 @@
+
+
+ Name: BARON TONY of HINTON
+ Race: HALFLING
+ Class: RANGER
+ Health: 11
+
+ STR: 14
+ DEX: 16 [14 + 2] 
+ CON: 13
+ INT: 11
+ WIS: 14
+ CHA: 11

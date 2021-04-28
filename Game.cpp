@@ -2,7 +2,10 @@
 
 void Game::greeting()
 {
-	std::cout << "\n\n* Hello and Welcome to the D&D Character Generator. * \n\n ";
+	std::cout << "\n\n\t\t\t* Hello and Welcome to the D&D Character Generator. * \n\n\
+	* Here you can create a new character for use in 5th Edition Dungeons and Dragons. * \n\n\
+	\t\t* For best experience turn on your CAPS LOCK on now. *\n\n\n\n    \t\t\t\t";
+	
 	system("pause");
 }
 

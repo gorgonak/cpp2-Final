@@ -6,18 +6,20 @@ void File::write_file(const std::string& character_name, std::string text)
 	std::ofstream save_file(save_character);
 
 	save_file << "Name: ";
-}
+}  // not really used at this point.. just a basic write to .txt function
 
 /*int File::read_file(std::string character_name)
 {
 	return 0;
 }*/
 
+
+// grabs all the character info for use in the save_char function
 void File::char_display(const std::string* name, const std::string* race, const std::string* class_name,
 	const int* str, const int* dex, const int* con, const int* ine, const int* wis, const int* cha, const int health)
 {
 	const auto save_character = *name + ".txt";
-	std::ofstream save_file(save_character);
+	std::ofstream save_file(save_character); 
 	
 	if (*race == "ELF")
 	{
@@ -130,6 +132,7 @@ void File::char_display(const std::string* name, const std::string* race, const 
 
 }
 
+// takes the info from char_display and gives the user an option to save into .txt
 void File::save_char(const std::string* name, const std::string* race, const std::string* class_name,
 	const int* str, const int* dex, const int* con, const int* ine, const int* wis, const int* cha, const int health)
 {

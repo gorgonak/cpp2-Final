@@ -4,6 +4,9 @@
 #include <iostream>
 #include <random>
 
+// this entire header is just for testing various functions before implementing them into my program
+// will be removed when finished and ready for deployment
+
 int shuffle_array()
 {
 	int arr[6] = { 18, 14, 10, 8, 15, 11 };
